@@ -33,7 +33,7 @@ class Taskviewset(viewsets.ModelViewSet):
     queryset = Task.objects.all()
 
     def create(self,request,*args,**kwargs):
-        if request.user.userprofile.last().role =='Supervisor':
+        if request.user.userprofile.last().role =='supervisor':
             serializer = Taskserializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
